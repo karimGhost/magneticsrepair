@@ -1,0 +1,1 @@
+REVOKE ALL ON FUNCTION public.tg_consume_stock() FROM PUBLIC, anon, authenticated;
