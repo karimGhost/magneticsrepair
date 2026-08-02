@@ -246,7 +246,7 @@ function Landing() {
           {[
             ["How long does a typical repair take?", "Most phone repairs are done within 24 hours. Complex board-level jobs may take 2–3 days."],
             ["Do you use genuine parts?", "We use genuine or factory-grade parts. We'll always disclose part origin upfront."],
-            ["What is your warranty?", "All repairs come with a 90-day warranty covering the specific fix and parts installed."],
+            ["What is your warranty?", "All repairs come with a  warranty covering the specific fix and parts installed."],
             ["Can I track my repair online?", "Yes — every ticket gets a tracking ID with live status updates and technician notes."],
             ["How do I pay?", "M-Pesa, cash, card, or bank transfer. Digital receipts are issued instantly."],
           ].map(([q, a]) => (
@@ -294,7 +294,7 @@ function Landing() {
             <div className="mt-6 overflow-hidden rounded-2xl border border-border">
               <iframe
                 title="Location"
-                src="https://www.google.com/maps?q=Nairobi&output=embed"
+                src="https://www.google.com/maps/embed?pb=!1m14!1m12!1m3!1d1517.7174995158898!2d36.980507462160595!3d-1.345865281203784!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!5e0!3m2!1sen!2ske!4v1785702158016!5m2!1sen!2ske"
                 className="w-full h-64"
                 loading="lazy"
               />
