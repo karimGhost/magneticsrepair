@@ -134,7 +134,7 @@ function Landing() {
               ["12k+", "Repairs completed"],
               ["4.9★", "Average rating"],
               ["24h", "Avg. turnaround"],
-              ["90 days", "Warranty on repairs"],
+              ["sure", "Warranty on repairs"],
             ].map(([n, l]) => (
               <Card key={l} className="shadow-card">
                 <CardContent className="p-6">

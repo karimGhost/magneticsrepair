@@ -10,6 +10,8 @@
 
 import { Route as rootRouteImport } from './routes/__root'
 import { Route as IndexRouteImport } from './routes/index'
+import { Route as PrivacyPolicyRouteImport } from './routes/Privacy-policy'
+import { Route as TermsRouteImport } from './routes/Terms'
 import { Route as AuthenticatedRouteRouteImport } from './routes/_authenticated/route'
 import { Route as AuthRouteImport } from './routes/auth'
 import { Route as TrackRouteImport } from './routes/track'
@@ -24,6 +26,16 @@ import { Route as AuthenticatedTechnicianRouteImport } from './routes/_authentic
 const IndexRoute = IndexRouteImport.update({
   id: '/',
   path: '/',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const PrivacyPolicyRoute = PrivacyPolicyRouteImport.update({
+  id: '/Privacy-policy',
+  path: '/Privacy-policy',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const TermsRoute = TermsRouteImport.update({
+  id: '/Terms',
+  path: '/Terms',
   getParentRoute: () => rootRouteImport,
 } as any)
 const AuthenticatedRouteRoute = AuthenticatedRouteRouteImport.update({
@@ -78,6 +90,8 @@ const AuthenticatedTechnicianRoute = AuthenticatedTechnicianRouteImport.update({
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
+  '/Privacy-policy': typeof PrivacyPolicyRoute
+  '/Terms': typeof TermsRoute
   '/auth': typeof AuthRoute
   '/track': typeof TrackRoute
   '/admin': typeof AuthenticatedAdminRoute
@@ -90,6 +104,8 @@ export interface FileRoutesByFullPath {
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
+  '/Privacy-policy': typeof PrivacyPolicyRoute
+  '/Terms': typeof TermsRoute
   '/auth': typeof AuthRoute
   '/track': typeof TrackRoute
   '/admin': typeof AuthenticatedAdminRoute
@@ -104,6 +120,8 @@ export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
   '/_authenticated': typeof AuthenticatedRouteRouteWithChildren
+  '/Privacy-policy': typeof PrivacyPolicyRoute
+  '/Terms': typeof TermsRoute
   '/auth': typeof AuthRoute
   '/track': typeof TrackRoute
   '/_authenticated/admin': typeof AuthenticatedAdminRoute
@@ -118,6 +136,8 @@ export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
   fullPaths:
     | '/'
+    | '/Privacy-policy'
+    | '/Terms'
     | '/auth'
     | '/track'
     | '/admin'
@@ -130,6 +150,8 @@ export interface FileRouteTypes {
   fileRoutesByTo: FileRoutesByTo
   to:
     | '/'
+    | '/Privacy-policy'
+    | '/Terms'
     | '/auth'
     | '/track'
     | '/admin'
@@ -143,6 +165,8 @@ export interface FileRouteTypes {
     | '__root__'
     | '/'
     | '/_authenticated'
+    | '/Privacy-policy'
+    | '/Terms'
     | '/auth'
     | '/track'
     | '/_authenticated/admin'
@@ -157,6 +181,8 @@ export interface FileRouteTypes {
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
   AuthenticatedRouteRoute: typeof AuthenticatedRouteRouteWithChildren
+  PrivacyPolicyRoute: typeof PrivacyPolicyRoute
+  TermsRoute: typeof TermsRoute
   AuthRoute: typeof AuthRoute
   TrackRoute: typeof TrackRoute
 }
@@ -168,6 +194,20 @@ declare module '@tanstack/react-router' {
       path: '/'
       fullPath: '/'
       preLoaderRoute: typeof IndexRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/Privacy-policy': {
+      id: '/Privacy-policy'
+      path: '/Privacy-policy'
+      fullPath: '/Privacy-policy'
+      preLoaderRoute: typeof PrivacyPolicyRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/Terms': {
+      id: '/Terms'
+      path: '/Terms'
+      fullPath: '/Terms'
+      preLoaderRoute: typeof TermsRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/_authenticated': {
@@ -269,6 +309,8 @@ const AuthenticatedRouteRouteWithChildren =
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
   AuthenticatedRouteRoute: AuthenticatedRouteRouteWithChildren,
+  PrivacyPolicyRoute: PrivacyPolicyRoute,
+  TermsRoute: TermsRoute,
   AuthRoute: AuthRoute,
   TrackRoute: TrackRoute,
 }
